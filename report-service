@@ -1,0 +1,17 @@
+#Indicando el puerto que estará utilizando al aplicación
+server.port = 0
+
+# Exponiendo los endpoints
+management.endpoints.web.exposure.include=*
+
+# Patron del logging
+logging.pattern.console=%d{HH:mm:ss} [%t] %-5level %logger{36} - %msg%n
+
+# Configuración de Eureka.
+eureka.client.fetch-registry=true
+eureka.client.register-with-eureka=true
+eureka.client.service-url.defaultZone=http://eureka-server:${EUREKA_PORT:8761}/eureka
+
+# Zipkin
+spring.sleuth.sampler.percentage=1.0
+spring.sleuth.web.skipPattern=(^cleanup.*)
